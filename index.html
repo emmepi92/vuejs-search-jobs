@@ -43,7 +43,7 @@
                                 <h4>{{jobOffer.position}}, {{jobOffer.city}}</h4>
 
                                 <!-- 
-                                    v-if necessario per nascondere bottone e icone
+                                    v-if necessario per nascondere buttons e icone
                                     perche non sono dinamici, quindi si 'legano'
                                     alla nula lista generata, ma con il vecchio index 
                                 -->
@@ -57,7 +57,7 @@
                             <div class="info-description">{{jobOffer.description}}</div>
                             <div class="info-date">data pubblicazione: {{jobOffer.created_at}}</div>
                             <div class="buttons-container" v-if="filteredJobs.length === jobs.length">
-                                <button @click="sendCurriculum(index)" v-if="!applied.includes(index + 1)">Invia
+                                <button @click="sendCurriculum(index+1)" v-if="!applied.includes(index + 1)">Invia
                                     Candidatura</button>
                                 <button v-else>Candidatura Inviata!</button>
                             </div>

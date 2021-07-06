@@ -97,8 +97,8 @@ const add = new Vue (
                 }
                 
             ],
-            starred: [1],
-            applied: [3, 4],
+            starred: [1,2,3],
+            applied: [4,5],
             displayModal: 'd-none',
             filter:'all',
             filteredJobs: []        
@@ -117,19 +117,17 @@ const add = new Vue (
             //al click sul cuore pieno => elimina dalla lista preferiti
             removeFromFav: function(id) {
                 //devo cercare l'indice dell'annuncio
-                //nell'array dei favoriti
+                //nell'array dei preferiti
                 //e cancellarlo
                 if (this.starred.includes(id)) {
                     let index = this.starred.indexOf(id);
-                    console.log(index);
                     this.starred.splice(index,1);
                 }
             },            
             //al click su invia candidatura=> pushare elementi nell'array
             sendCurriculum: function(index) {
                 if(!this.applied.includes(index)) {
-                    this.applied.push(index)
-                    /
+                    this.applied.push(index);
                     this.display();
                 }
             },
