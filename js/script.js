@@ -105,7 +105,7 @@ const add = new Vue (
             
         },
         mounted () {
-            this.stampaLista('all');
+            this.stampaLista(this.filter, this.jobs);
         },
         methods: {
             //al click sul cuore vuoto => aggiungi alla lista preferiti
@@ -145,7 +145,7 @@ const add = new Vue (
                 },2000)
             },
             //array = array
-            stampaLista: function(filter) {
+            stampaLista: function(filter,starredOrApplied) {
                 //devo passare l'array
                 //ho un array di numeri => sono gli id degli annunci
                 //devo stampare questi annunci 
@@ -156,7 +156,7 @@ const add = new Vue (
                         // se l'id del job è contenuto nella lista
                         // starred o applied, aggiungilo alla lista filtrata
                         // -1 perchè inizia da 0
-                        if (filter.includes(job.id - 1)) {
+                        if (starredOrApplied.includes(job.id - 1)) {
                             return true;
                         } else {
                             return false;
