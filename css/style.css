@@ -47,7 +47,7 @@ body {
 
 .job-content {
     padding: 24px;
-    margin: 12px;
+    margin: 12px 0;
     background-color: white;
     border-bottom-right-radius: 20px;
     border-top-left-radius: 20px;
@@ -76,5 +76,17 @@ button {
 
 .info-date {
     font-size: 12px;
-text-align: end;
+    text-align: end;
+}
+
+.select-container {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 12px 24px;
+    margin: 12px 0;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 20px;
+    text-align: center;
+}
+select {
+    outline: none;
 }

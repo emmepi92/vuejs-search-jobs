@@ -99,8 +99,13 @@ const add = new Vue (
             ],
             starred: [2, 4],
             applied: [3, 4],
-            displayModal: 'd-none'          
+            displayModal: 'd-none',
+            filter:'all',
+            filteredJobs: []        
             
+        },
+        mounted () {
+            this.stampaLista('all');
         },
         methods: {
             //al click sul cuore vuoto => aggiungi alla lista preferiti
@@ -118,7 +123,7 @@ const add = new Vue (
                     let index = this.starred.indexOf(id);
                     console.log(index);
                     this.starred.splice(index,1);
-                }               
+                }
             },            
             //al click su invia candidatura=> pushare elementi nell'array
             sendCurriculum: function(index) {
@@ -139,6 +144,28 @@ const add = new Vue (
                     this.displayModal = 'd-none'
                 },2000)
             },
+            //array = array
+            stampaLista: function(filter) {
+                //devo passare l'array
+                //ho un array di numeri => sono gli id degli annunci
+                //devo stampare questi annunci 
+                return this.filteredJobs = this.jobs.filter((job) => {
+                    if (filter=== 'all') {
+                        return true
+                    } else {
+                        // se l'id del job è contenuto nella lista
+                        // starred o applied, aggiungilo alla lista filtrata
+                        // -1 perchè inizia da 0
+                        if (filter.includes(job.id - 1)) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+
+                })
+
+            }
         }
     } 
 )
