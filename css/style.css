@@ -23,9 +23,9 @@ body {
 }
 
 .job-content {
-    padding: 12px;
+    padding: 24px;
     margin: 12px;
-    background-color: #ccc;
+    background-color: white;
     border: 1px solid #888;
     border-bottom-right-radius: 20px;
     border-top-left-radius: 20px;
@@ -36,4 +36,12 @@ body {
 .fa-heart {
     color: green;
     font-size: 30px;
+}
+
+button {
+    margin-top: 12px;
+    border: none;
+    box-shadow: 0 0 10px green;
+    background-color: green;
+    color: white;
 }

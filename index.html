@@ -17,7 +17,7 @@
             <div class="row justify-content-center">
                 <div class="col-8 ">
                     <div class="jobs-list" v-for="(jobOffer,index) in jobs">
-                        <div class="job-content p-2">
+                        <div class="job-content">
                             <div class="job-info">
                                 <h4>{{jobOffer.position}}, {{jobOffer.city}}</h4>
                                 <i v-if="!starred.includes(index)" @click="addToFav(index)" class="far fa-heart"></i>
