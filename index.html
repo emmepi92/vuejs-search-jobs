@@ -13,24 +13,31 @@
 </head>
 <body>
     <div id="app">
-        <div class="container-custom">
-            <div class="jobs-list" v-for="(jobOffer,index) in jobs">
-                <div class="job-content p-2">
-                    <div class="job-info">
-                        <h4>{{jobOffer.position}}, {{jobOffer.city}}</h4>
-                        <i v-if="!starred.includes(index)" @click="addToFav(index)" class="far fa-heart"></i>
-                        <i v-else @click="removeFromFav(index)" class="fas fa-heart"></i>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-8 ">
+                    <div class="jobs-list" v-for="(jobOffer,index) in jobs">
+                        <div class="job-content p-2">
+                            <div class="job-info">
+                                <h4>{{jobOffer.position}}, {{jobOffer.city}}</h4>
+                                <i v-if="!starred.includes(index)" @click="addToFav(index)" class="far fa-heart"></i>
+                                <i v-else @click="removeFromFav(index)" class="fas fa-heart"></i>
+                            </div>
+                            <div>L'azienda <span class="name-company">{{jobOffer.company}}</span>, offre: </div>                    
+                            <div>{{jobOffer.description}}</div>   
+                            <button @click="sendCurriculum(index)" v-if="!applied.includes(index)" >Invia Candidatura</button>  
+                            <button v-else>Candidatura Inviata!</button>
+                        </div>
                     </div>
-                    <div>L'azienda {{jobOffer.company}}, offre: </div>                    
-                    <div>{{jobOffer.description}}</div>   
-                    <button @click="sendCurriculum(index)" v-if="!applied.includes(index)" >Invia Candidatura</button>  
-                    <button v-else>Candidatura Inviata!</button>
+                    
+                    <div class="sent-curriculum " :class="displayModal">
+                        <h1>Curriculum inviato correttamente</h1>
+                    </div>
+
                 </div>
+
             </div>
             
-            <div class="sent-curriculum " :class="displayModal">
-                <h1>Curriculum inviato correttamente</h1>
-            </div>
         </div>
     </div>
     

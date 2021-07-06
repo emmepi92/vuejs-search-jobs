@@ -119,31 +119,26 @@ const add = new Vue (
                     console.log(index);
                     this.starred.splice(index,1);
                 }               
+            },            
+            //al click su invia candidatura=> pushare elementi nell'array
+            sendCurriculum: function(index) {
+                if(!this.applied.includes(index)) {
+                    this.applied.push(index)
+                    /
+                    this.display();
+                }
             },
             display: function() {
                 setTimeout(() =>{
                     this.displayModal = 'd-block';
                     this.notDisplay();
-
                 },1000)
-                // setTimeout ( this.notDisplay(),3000)               
             },
             notDisplay: function () {
                 setTimeout(() => {
                     this.displayModal = 'd-none'
-
                 },2000)
             },
-            //al click su invia candidatura=> pushare elementi nell'array
-            sendCurriculum: function(index) {
-                if(!this.applied.includes(index)) {
-                    this.applied.push(index)
-                    //al click aprire una modale(alert per testare)
-                    this.display();
-
-                }
-
-            }
         }
     } 
 )

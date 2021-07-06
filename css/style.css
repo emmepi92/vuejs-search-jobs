@@ -1,7 +1,5 @@
-.container-custom {
-    width: 500px;
-    margin: 0 auto;
-    position: relative;
+body {
+    background-color:  green;
 }
 
 .job-info {
@@ -22,4 +20,20 @@
     border-radius: 20px;
     text-align: center;
     box-shadow: 0 0 10px black;
+}
+
+.job-content {
+    padding: 12px;
+    margin: 12px;
+    background-color: #ccc;
+    border: 1px solid #888;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+.name-company {
+    font-weight: bold;
+}
+.fa-heart {
+    color: green;
+    font-size: 30px;
 }
