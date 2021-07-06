@@ -6,16 +6,6 @@ const add = new Vue (
         data: {
             jobs: [
                 {
-                    id: 0,
-                    company: 'Sauro',
-                    position: 'Developer',
-                    description: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure veniam similique adipisci! Perferendis odio sapiente libero quam deleniti quidem consequuntur adipisci minima non iusto, sunt optio hic. Corporis, laboriosam perferendis?',
-                    created_at: '5/22/2021',
-                    logo: 'logo.jpg',
-                    city: 'Roma',
-                    contract: 'Part Time'
-                },
-                {
                     id: 1,
                     company: 'Perferendis',
                     position: 'Developer',
@@ -95,6 +85,16 @@ const add = new Vue (
                     city: 'Venezia',
                     contract: 'Full Time'
                 },
+                {
+                    id: 9,
+                    company: 'Sauro',
+                    position: 'Developer',
+                    description: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure veniam similique adipisci! Perferendis odio sapiente libero quam deleniti quidem consequuntur adipisci minima non iusto, sunt optio hic. Corporis, laboriosam perferendis?',
+                    created_at: '5/22/2021',
+                    logo: 'logo.jpg',
+                    city: 'Roma',
+                    contract: 'Part Time'
+                }
                 
             ],
             starred: [2, 4],
@@ -123,7 +123,11 @@ const add = new Vue (
             sendCurriculum: function(index) {
                 if(!this.applied.includes(index)) {
                     this.applied.push(index)
+                    alert('candidatura inviata')
                 }
+
+
+                //al click aprire una modale(alert per testare)
             }
         }
     } 
