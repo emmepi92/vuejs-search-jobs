@@ -24,7 +24,8 @@
                                 <i v-else @click="removeFromFav(index)" class="fas fa-heart"></i>
                             </div>
                             <div>L'azienda <span class="name-company">{{jobOffer.company}}</span>, offre: </div>                    
-                            <div>{{jobOffer.description}}</div>   
+                            <div class="info-description">{{jobOffer.description}}</div> 
+                            <div class="info-date">data pubblicazione: {{jobOffer.created_at}}</div>  
                             <button @click="sendCurriculum(index)" v-if="!applied.includes(index)" >Invia Candidatura</button>  
                             <button v-else>Candidatura Inviata!</button>
                         </div>
