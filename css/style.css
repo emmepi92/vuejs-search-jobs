@@ -1,8 +1,9 @@
 header {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.9);
     border-bottom-right-radius: 20px;
     border-top-left-radius: 20px;
-    margin: 0 100px;
+    margin: 12px 100px 0;
+    
 }
 
 .page-name {
@@ -22,7 +23,7 @@ header {
 }
 
 body {
-    background-color:  green;
+    background-color:green;
 }
 
 .job-info {
@@ -80,7 +81,7 @@ button {
 }
 
 .select-container {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 12px 24px;
     margin: 12px 0;
     border-bottom-right-radius: 20px;
