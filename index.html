@@ -38,8 +38,8 @@
                         </select>
                     </div>
                     
-                    <div class="jobs-list" v-for="(jobOffer,index) in filteredJobs">
-                        <div class="job-content">
+                    <div class="jobs-list" >
+                        <div class="job-content" v-for="(jobOffer,index) in filteredJobs">
                             <div class="job-info">
                                 <h4>{{jobOffer.position}}, {{jobOffer.city}}</h4>
 
