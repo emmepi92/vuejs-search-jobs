@@ -1,6 +1,7 @@
 .container-custom {
     width: 500px;
     margin: 0 auto;
+    position: relative;
 }
 
 .job-info {
@@ -9,4 +10,16 @@
 
 .job-info h4 {
     flex-grow: 1; 
+}
+
+.sent-curriculum {
+    background-color: #ccc;
+    padding: 50px 100px;
+    position: absolute;
+    top: 50vh;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px black;
 }
