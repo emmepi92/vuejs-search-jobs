@@ -105,7 +105,7 @@ const add = new Vue (
             
         },
         mounted () {
-            this.stampaLista();
+            this.stampList();
         },
         methods: {
             //al click sul cuore vuoto => aggiungi alla lista preferiti
@@ -143,7 +143,7 @@ const add = new Vue (
                 },2000)
             },
             //array = array
-            stampaLista: function() {
+            stampList: function() {
                 //devo passare l'array
                 //ho un array di numeri => sono gli id degli annunci
                 //devo stampare questi annunci 
@@ -167,10 +167,18 @@ const add = new Vue (
                             }
                         }
                     }
+                    
 
                 })
 
-            }
+            },
+            // non funziona perchè è interna al filter?
+            // filterList: function(array) {
+            //     if (array.includes(job.id)) {
+            //         return true;
+            //     } else {
+            //         return false;
+            //     }
         }
     } 
 )

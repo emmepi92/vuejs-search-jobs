@@ -31,7 +31,7 @@
                         <!-- filtra qui -->
                         <label for="filter">Visualizza:</label>
 
-                        <select @change="stampaLista()" v-model="filter" name="pets" id="filter">
+                        <select @change="stampList()" v-model="filter" name="pets" id="filter">
                             <option value="all">Tutte le offerte</option>
                             <option value="starred">Preferiti</option>
                             <option value="applied">Candidature inviate</option>
@@ -50,7 +50,7 @@
                                     della lista precedente
                                 -->
                                 <div class="favorite-container" v-if="filter === 'all'">
-                                    <i v-if="!starred.includes(index + 1)" @click="addToFav(index+1)" class="far fa-heart"></i>
+                                    <i v-if="!starred.includes(jobOffer.id)" @click="addToFav(jobOffer.id)" class="far fa-heart"></i>
                                     <i v-else @click="removeFromFav(index+1)" class="fas fa-heart"></i>
 
                                 </div>
@@ -59,7 +59,7 @@
                             <div class="info-description">{{jobOffer.description}}</div>
                             <div class="info-date">data pubblicazione: {{jobOffer.created_at}}</div>
                             <div class="buttons-container" v-if="filter === 'all'">
-                                <button @click="sendCurriculum(index+1)" v-if="!applied.includes(index + 1)">Invia
+                                <button @click="sendCurriculum(jobOffer.id)" v-if="!applied.includes(jobOffer.id)">Invia
                                     Candidatura</button>
                                 <button v-else>Candidatura Inviata!</button>
                             </div>
