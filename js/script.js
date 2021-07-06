@@ -1,6 +1,6 @@
 Vue.config.devtools = true;
-  
-const add = new Vue (
+
+const add = new Vue(
     {
         el: '#app',
         data: {
@@ -95,90 +95,77 @@ const add = new Vue (
                     city: 'Roma',
                     contract: 'Part Time'
                 }
-                
+
             ],
-            starred: [1,2,3],
-            applied: [4,5],
+            starred: [1, 2, 3],
+            applied: [4, 5],
             displayModal: 'd-none',
-            filter:'all',
-            filteredJobs: []        
-            
+            filter: 'all',
+            filteredJobs: []
+
         },
-        mounted () {
+        mounted() {
             this.stampList();
         },
         methods: {
             //al click sul cuore vuoto => aggiungi alla lista preferiti
-            addToFav: function(index) {
+            addToFav: function (index) {
                 if (!this.starred.includes(index)) {
                     this.starred.push(index)
                 }
             },
             //al click sul cuore pieno => elimina dalla lista preferiti
-            removeFromFav: function(id) {
+            removeFromFav: function (id) {
                 //devo cercare l'indice dell'annuncio
                 //nell'array dei preferiti
                 //e cancellarlo
                 if (this.starred.includes(id)) {
                     let index = this.starred.indexOf(id);
-                    this.starred.splice(index,1);
+                    this.starred.splice(index, 1);
                 }
-            },            
+            },
             //al click su invia candidatura=> pushare elementi nell'array
-            sendCurriculum: function(index) {
-                if(!this.applied.includes(index)) {
+            sendCurriculum: function (index) {
+                if (!this.applied.includes(index)) {
                     this.applied.push(index);
                     this.display();
                 }
             },
-            display: function() {
-                setTimeout(() =>{
+            display: function () {
+                setTimeout(() => {
                     this.displayModal = 'd-block';
                     this.notDisplay();
-                },1000)
+                }, 1000)
             },
             notDisplay: function () {
                 setTimeout(() => {
                     this.displayModal = 'd-none'
-                },2000)
+                }, 2000)
             },
-            //array = array
-            stampList: function() {
+            stampList: function () {
                 //devo passare l'array
                 //ho un array di numeri => sono gli id degli annunci
                 //devo stampare questi annunci 
-                return this.filteredJobs = this.jobs.filter((job) => {
-                    if (this.filter=== 'all') {
-                        return true
+                if (this.filter === 'all') {
+                    return this.filteredJobs = this.jobs
+                } else {
+                    if (this.filter === 'starred') {
+                        this.filterList(this.starred)
                     } else {
-                        if (this.filter === 'starred') {
-                            if (this.starred.includes(job.id)) {
-                                console.log(job.id)
-                                return true;
-                            } else {
-                                return false;
-                            }
-                        } else {
-                            if (this.applied.includes(job.id)) {
-                                console.log(job.id)
-                                return true;
-                            } else {
-                                return false;
-                            }
-                        }
+                        this.filterList(this.applied)
                     }
-                    
-
-                })
-
+                }
             },
-            // non funziona perchè è interna al filter?
-            // filterList: function(array) {
-            //     if (array.includes(job.id)) {
-            //         return true;
-            //     } else {
-            //         return false;
-            //     }
+            filterList: function(array) {
+                return this.filteredJobs = this.jobs.filter((job) => {
+                    if (array.includes(job.id)) {
+                        console.log(job.id)
+                        return true;
+                    } else {
+                        return false;
+                    }
+                })
+            }
         }
-    } 
+    }
 )
