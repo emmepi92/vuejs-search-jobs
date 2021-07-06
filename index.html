@@ -18,8 +18,8 @@
                 <div class="job-content p-2">
                     <div class="job-info">
                         <h4>{{jobOffer.position}}, {{jobOffer.city}}</h4>
-                        <i @click="addToFav(index)" class="far fa-heart"></i>
-                        <i @click="removeFromFav(index)" class="fas fa-heart"></i>
+                        <i v-if="!starred.includes(index)" @click="addToFav(index)" class="far fa-heart"></i>
+                        <i v-else @click="removeFromFav(index)" class="fas fa-heart"></i>
                     </div>
                     <div>L'azienda {{jobOffer.company}}, offre: </div>                    
                     <div>{{jobOffer.description}}</div> 
