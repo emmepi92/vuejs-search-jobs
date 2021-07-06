@@ -97,15 +97,15 @@ const add = new Vue (
                 }
                 
             ],
-            starred: [1, 2, 4, 7],
+            starred: [1],
             applied: [3, 4],
             displayModal: 'd-none',
-            filter:'applied',
+            filter:'all',
             filteredJobs: []        
             
         },
         mounted () {
-            this.stampaLista(this.filter, this.starred);
+            this.stampaLista();
         },
         methods: {
             //al click sul cuore vuoto => aggiungi alla lista preferiti
@@ -145,24 +145,29 @@ const add = new Vue (
                 },2000)
             },
             //array = array
-            stampaLista: function(filter,starredOrApplied) {
+            stampaLista: function() {
                 //devo passare l'array
                 //ho un array di numeri => sono gli id degli annunci
                 //devo stampare questi annunci 
                 return this.filteredJobs = this.jobs.filter((job) => {
-                    if (filter=== 'all') {
+                    if (this.filter=== 'all') {
                         return true
                     } else {
-                        // se l'id del job è contenuto nella lista
-                        // starred o applied, aggiungilo alla lista filtrata
-                        // -1 perchè inizia da 0
-                        if (starredOrApplied.includes(job.id -1)) {
-                            return true;
+                        if (this.filter === 'starred') {
+                            if (this.starred.includes(job.id)) {
+                                console.log(job.id)
+                                return true;
+                            } else {
+                                return false;
+                            }
                         } else {
-                            return false;
+                            if (this.applied.includes(job.id)) {
+                                console.log(job.id)
+                                return true;
+                            } else {
+                                return false;
+                            }
                         }
-                        // prende in ordine i primi oggetti tanti quanti sono
-                        //gli oggetti presenti in starred o applied
                     }
 
                 })

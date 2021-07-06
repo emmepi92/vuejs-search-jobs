@@ -30,25 +30,37 @@
                         <!-- filtra qui -->
                         <label for="filtro">Visualizza:</label>
 
-                        <select v-model="filter" name="pets" id="filtro">
+                        <select @change="stampaLista()" v-model="filter" name="pets" id="filtro">
                             <option value="all">Tutte le offerte</option>
                             <option value="starred">Preferiti</option>
                             <option value="applied">Candidature inviate</option>
                         </select>
                     </div>
+                    
                     <div class="jobs-list" v-for="(jobOffer,index) in filteredJobs">
                         <div class="job-content">
                             <div class="job-info">
                                 <h4>{{jobOffer.position}}, {{jobOffer.city}}</h4>
-                                <i v-if="!starred.includes(index + 1)" @click="addToFav(index)" class="far fa-heart"></i>
-                                <i v-else @click="removeFromFav(index)" class="fas fa-heart"></i>
+
+                                <!-- 
+                                    v-if necessario per nascondere bottone e icone
+                                    perche non sono dinamici, quindi si 'legano'
+                                    alla nula lista generata, ma con il vecchio index 
+                                -->
+                                <div class="favorite-container" v-if="filteredJobs.length === jobs.length">
+                                    <i v-if="!starred.includes(index + 1)" @click="addToFav(index+1)" class="far fa-heart"></i>
+                                    <i v-else @click="removeFromFav(index+1)" class="fas fa-heart"></i>
+
+                                </div>
                             </div>
                             <div>L'azienda <span class="name-company">{{jobOffer.company}}</span>, offre: </div>
                             <div class="info-description">{{jobOffer.description}}</div>
                             <div class="info-date">data pubblicazione: {{jobOffer.created_at}}</div>
-                            <button @click="sendCurriculum(index)" v-if="!applied.includes(index + 1)">Invia
-                                Candidatura</button>
-                            <button v-else>Candidatura Inviata!</button>
+                            <div class="buttons-container" v-if="filteredJobs.length === jobs.length">
+                                <button @click="sendCurriculum(index)" v-if="!applied.includes(index + 1)">Invia
+                                    Candidatura</button>
+                                <button v-else>Candidatura Inviata!</button>
+                            </div>
                         </div>
                     </div>
 
