@@ -120,5 +120,5 @@ const add = new Vue (
                 }               
             }
         }
-    }
+    } 
 )
