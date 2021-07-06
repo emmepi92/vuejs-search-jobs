@@ -1,0 +1,12 @@
+.container-custom {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.job-info {
+    display: flex;
+}
+
+.job-info h4 {
+    flex-grow: 1;
+}
