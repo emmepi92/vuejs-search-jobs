@@ -97,15 +97,15 @@ const add = new Vue (
                 }
                 
             ],
-            starred: [2, 4],
+            starred: [1, 2, 4, 7],
             applied: [3, 4],
             displayModal: 'd-none',
-            filter:'all',
+            filter:'applied',
             filteredJobs: []        
             
         },
         mounted () {
-            this.stampaLista(this.filter, this.jobs);
+            this.stampaLista(this.filter, this.starred);
         },
         methods: {
             //al click sul cuore vuoto => aggiungi alla lista preferiti
@@ -156,11 +156,13 @@ const add = new Vue (
                         // se l'id del job è contenuto nella lista
                         // starred o applied, aggiungilo alla lista filtrata
                         // -1 perchè inizia da 0
-                        if (starredOrApplied.includes(job.id - 1)) {
+                        if (starredOrApplied.includes(job.id -1)) {
                             return true;
                         } else {
                             return false;
                         }
+                        // prende in ordine i primi oggetti tanti quanti sono
+                        //gli oggetti presenti in starred o applied
                     }
 
                 })

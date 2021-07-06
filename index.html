@@ -40,13 +40,13 @@
                         <div class="job-content">
                             <div class="job-info">
                                 <h4>{{jobOffer.position}}, {{jobOffer.city}}</h4>
-                                <i v-if="!starred.includes(index)" @click="addToFav(index)" class="far fa-heart"></i>
+                                <i v-if="!starred.includes(index + 1)" @click="addToFav(index)" class="far fa-heart"></i>
                                 <i v-else @click="removeFromFav(index)" class="fas fa-heart"></i>
                             </div>
                             <div>L'azienda <span class="name-company">{{jobOffer.company}}</span>, offre: </div>
                             <div class="info-description">{{jobOffer.description}}</div>
                             <div class="info-date">data pubblicazione: {{jobOffer.created_at}}</div>
-                            <button @click="sendCurriculum(index)" v-if="!applied.includes(index)">Invia
+                            <button @click="sendCurriculum(index)" v-if="!applied.includes(index + 1)">Invia
                                 Candidatura</button>
                             <button v-else>Candidatura Inviata!</button>
                         </div>
