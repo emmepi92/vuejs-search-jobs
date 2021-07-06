@@ -23,7 +23,7 @@
                     </div>
                     <div>L'azienda {{jobOffer.company}}, offre: </div>                    
                     <div>{{jobOffer.description}}</div>   
-                    <button v-if="!applied.includes(index)" >Invia Candidatura</button>  
+                    <button @click="sendCurriculum(index)" v-if="!applied.includes(index)" >Invia Candidatura</button>  
                     <button v-else>Candidatura Inviata!</button>
                 </div>
             </div>

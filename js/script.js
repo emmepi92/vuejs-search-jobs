@@ -118,6 +118,12 @@ const add = new Vue (
                     console.log(index);
                     this.starred.splice(index,1);
                 }               
+            },
+            //al click su invia candidatura=> pushare elementi nell'array
+            sendCurriculum: function(index) {
+                if(!this.applied.includes(index)) {
+                    this.applied.push(index)
+                }
             }
         }
     } 
