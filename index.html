@@ -44,8 +44,6 @@
             <div class="row justify-content-center">
                 <div class="col-3">
                     <div class="job-content">
-                        <!-- cosa voglio fare?
-                        stampa i nomi delle società che hai agigunto ai preferiti -->
                         <h4>I tuoi preferiti</h4>
                         <div v-for="job in jobs" v-if="(starred.includes(job.id))" class="small-view">
                             <strong>{{job.position}}</strong>, a {{job.city}}, contratto {{job.contract}}
@@ -87,27 +85,9 @@
                 </div>
             </div>
 
-
-
             <div class="sent-curriculum " :class="displayModal">
                 <h1>Curriculum inviato correttamente</h1>
             </div>
-
-
-            <section>
-                <div class="row justify-content-center">
-                    <div class="col-4">
-                        
-                    </div>
-
-                    <div class="col-4">
-                        
-                    </div>
-                </div>
-
-            </section>
-
-
         </div>
     </div>
 
