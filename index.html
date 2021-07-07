@@ -25,8 +25,9 @@
     </header>
     <div id="app">
         <div class="container">
+
             <div class="row justify-content-center">
-                <div class="col-8 ">
+                <div class="col-10 ">
                     <div class="select-container">
                         <!-- filtra qui -->
                         <label for="filter">Visualizza:</label>
@@ -37,14 +38,36 @@
                             <option value="applied">Candidature inviate</option>
                         </select>
                     </div>
-                    
-                    
-                    <div class="jobs-list" >
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-3">
+                    <div class="job-content">
+                        <!-- cosa voglio fare?
+                        stampa i nomi delle società che hai agigunto ai preferiti -->
+                        <h4>I tuoi preferiti</h4>
+                        <div v-for="job in jobs" v-if="(starred.includes(job.id))" class="small-view">
+                            <strong>{{job.position}}</strong>, a {{job.city}}, contratto {{job.contract}}
+                        </div>
+                    </div>
+                    <div class="job-content">
+                        <h4>Le tue candidature</h4>
+                        <div v-for="job in jobs" v-if="(applied.includes(job.id))" class="small-view">
+                            <strong>{{job.position}}</strong>, a {{job.city}}, contratto {{job.contract}}
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-7">
+                    <div class="jobs-list">
                         <div class="job-content" v-for="(jobOffer,index) in filteredJobs">
                             <div class="job-info">
                                 <h4>{{jobOffer.position}}, {{jobOffer.city}}</h4>
                                 <div class="favorite-container">
-                                    <i v-if="!starred.includes(jobOffer.id)" @click="addToFav(jobOffer.id)" class="far fa-heart"></i>
+                                    <i v-if="!starred.includes(jobOffer.id)" @click="addToFav(jobOffer.id)"
+                                        class="far fa-heart"></i>
                                     <i v-else @click="removeFromFav(index+1)" class="fas fa-heart"></i>
 
                                 </div>
@@ -54,42 +77,36 @@
                             <div class="info-description">{{jobOffer.description}}</div>
                             <div class="info-date">data pubblicazione: {{jobOffer.created_at}}</div>
                             <div class="buttons-container">
-                                <button @click="sendCurriculum(jobOffer.id)" 
-                                v-if="!applied.includes(jobOffer.id)">
+                                <button @click="sendCurriculum(jobOffer.id)" v-if="!applied.includes(jobOffer.id)">
                                     Invia Candidatura
                                 </button>
                                 <button v-else>Candidatura Inviata!</button>
                             </div>
                         </div>
                     </div>
-
-                    <div class="sent-curriculum " :class="displayModal">
-                        <h1>Curriculum inviato correttamente</h1>
-                    </div>
                 </div>
             </div>
 
-            <div class="row justify-content-center">
-                <div class="col-4">
-                    <div class="job-content">
-                        <!-- cosa voglio fare?
-                        stampa i nomi delle società che hai agigunto ai preferiti -->
-                        <h4>I tuoi preferiti</h4>
-                        <div v-for="job in jobs" v-if ="(starred.includes(job.id))">
-                            <strong>{{job.position}}</strong>, a {{job.city}}, contratto {{job.contract}}
-                        </div>
+
+
+            <div class="sent-curriculum " :class="displayModal">
+                <h1>Curriculum inviato correttamente</h1>
+            </div>
+
+
+            <section>
+                <div class="row justify-content-center">
+                    <div class="col-4">
+                        
+                    </div>
+
+                    <div class="col-4">
+                        
                     </div>
                 </div>
 
-                <div class="col-4">
-                    <div class="job-content">
-                        <h4>Le tue candidature</h4>
-                        <div v-for="job in jobs" v-if="(applied.includes(job.id))">
-                            <strong>{{job.position}}</strong>, a {{job.city}}, contratto {{job.contract}}
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </section>
+
 
         </div>
     </div>

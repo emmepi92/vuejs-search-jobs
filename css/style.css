@@ -46,9 +46,14 @@ body {
     top: 50vh;
     left: 50%;
     transform: translate(-50%,-50%);
-    border-radius: 20px;
     text-align: center;
-    box-shadow: 0 0 10px black;
+    box-shadow: 0 0 20px green;
+    border-bottom-right-radius: 30px;
+    border-top-left-radius: 20px;
+    border-bottom: 3px solid green;
+    border-right: 3px solid green;
+    border-left: 1px solid #555;
+    border-top: 1px solid #555;
 }
 
 .job-content {
@@ -95,4 +100,16 @@ button {
 }
 select {
     outline: none;
+}
+
+.small-view {
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom: 2px solid green;
+    border-right: 2px solid green;
+    border-left: 1px solid #888;
+    border-top: 1px solid #888;
+    padding: 6px;
+    margin: 12px 0;
+    box-shadow: 2px 2px 2px green;
 }
