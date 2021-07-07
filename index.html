@@ -69,9 +69,30 @@
                     <div class="sent-curriculum " :class="displayModal">
                         <h1>Curriculum inviato correttamente</h1>
                     </div>
-
                 </div>
+            </div>
 
+            <div class="row justify-content-center" v-if="filter === 'all'">
+                <div class="col-8">
+                    <div class="job-content">
+                        <!-- cosa voglio fare?
+                        stampa i nomi delle società che hai agigunto ai preferiti -->
+                        <h2>I tuoi preferiti</h2>
+                        <div v-for="job in filteredJobs" v-if ="(starred.includes(job.id))">
+                            {{job.position}}, a {{job.city}}, contratto {{job.contract}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center" v-if="filter === 'all'">
+                <div class="col-8">
+                    <div class="job-content">
+                        <h2>Le tue candidature</h2>
+                        <div v-for="job in filteredJobs" v-if="(applied.includes(job.id))">
+                            {{job.position}}, a {{job.city}}, contratto {{job.contract}}
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
