@@ -34,6 +34,11 @@ body {
     flex-grow: 1; 
 }
 
+.info-contract {
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
 .sent-curriculum {
     background-color: white;
     padding: 50px 100px;
